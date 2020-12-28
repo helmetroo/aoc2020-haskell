@@ -22,7 +22,8 @@ description:         Please see the README on GitHub at <https://github.com/helm
 dependencies:
 - base >= 4.7 && < 5
 - fclabels
-- containers
+- regex-base
+- regex-pcre
 
 library:
   source-dirs: src
