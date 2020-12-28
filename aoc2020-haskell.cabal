@@ -1,0 +1,84 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: e4ac707338611a021b64bd9beb6d83e48ff3c3d3d63db80c5d57c09ee0e4985c
+
+name:           aoc2020-haskell
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/helmetroo/aoc2020-haskell#readme>
+homepage:       https://github.com/helmetroo/aoc2020-haskell#readme
+bug-reports:    https://github.com/helmetroo/aoc2020-haskell/issues
+author:         Samuel Sweet
+maintainer:     samueljsweet@gmail.com
+copyright:      2020 Samuel Sweet
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/helmetroo/aoc2020-haskell
+
+library
+  exposed-modules:
+      P1.Solution
+      P1.SolutionPrinter
+      P1.TextFileReader
+      P2.PasswordFileReader
+      P2.PasswordTypes
+      P2.Solution
+      P2.SolutionPrinter
+      P3.Solution
+      P3.SolutionPrinter
+      P3.TreeMap
+      P3.TreeMapFileReader
+      P4.Passport
+      P4.PassportFileReader
+      P4.Solution
+      P4.SolutionPrinter
+      SolutionUtils.InputFile
+      SolutionUtils.Splitter
+  other-modules:
+      Paths_aoc2020_haskell
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , fclabels
+  default-language: Haskell2010
+
+executable aoc2020-haskell-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_aoc2020_haskell
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aoc2020-haskell
+    , base >=4.7 && <5
+    , containers
+    , fclabels
+  default-language: Haskell2010
+
+test-suite aoc2020-haskell-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_aoc2020_haskell
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aoc2020-haskell
+    , base >=4.7 && <5
+    , containers
+    , fclabels
+  default-language: Haskell2010
