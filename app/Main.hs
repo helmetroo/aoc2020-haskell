@@ -1,7 +1,7 @@
 module Main where
 
-import qualified P4.SolutionPrinter as P4SolPrinter
+import qualified P5.SolutionPrinter as P5SolPrinter
 
 main :: IO ()
 main = do
-  P4SolPrinter.printSolution
+  P5SolPrinter.printSolution
