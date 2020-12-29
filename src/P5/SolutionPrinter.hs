@@ -7,7 +7,8 @@ import P5.BoardingPassFileReader(
   )
 
 import P5.Solution(
-  findHighestSeatId
+  findHighestSeatId,
+  findYourSeatId
   )
 
 import SolutionUtils.InputFile(
@@ -18,3 +19,4 @@ printSolution :: IO()
 printSolution = do
   boardingPasses <- readBoardingPasses $ inputFileFor 5
   print $ findHighestSeatId boardingPasses
+  print $ findYourSeatId boardingPasses
