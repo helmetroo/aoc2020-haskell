@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: fab84492669e7988f8506d66cffacac7ebd31cfb3f0986c7a1f25af142e21d54
+-- hash: 769e2762880e3f83098d9a84922436832dbb545a610bd999c14d1b8e7a2dd6c3
 
 name:           aoc2020-haskell
 version:        0.1.0.0
@@ -42,6 +42,10 @@ library
       P4.PassportFileReader
       P4.Solution
       P4.SolutionPrinter
+      P5.BoardingPass
+      P5.BoardingPassFileReader
+      P5.Solution
+      P5.SolutionPrinter
       SolutionUtils.InputFile
       SolutionUtils.Splitter
   other-modules:
