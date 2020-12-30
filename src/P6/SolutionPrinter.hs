@@ -7,7 +7,8 @@ import P6.SurveyFileReader(
   )
 
 import P6.Solution(
-  totalQuestionsAnswered
+  totalQuestionsAnyoneAnswered,
+  totalQuestionsEveryoneAnswered
   )
 
 import SolutionUtils.InputFile(
@@ -17,4 +18,5 @@ import SolutionUtils.InputFile(
 printSolution :: IO()
 printSolution = do
   surveys <- readSurveyFile $ inputFileFor 6
-  print $ totalQuestionsAnswered surveys
+  print $ totalQuestionsAnyoneAnswered surveys
+  print $ totalQuestionsEveryoneAnswered surveys
