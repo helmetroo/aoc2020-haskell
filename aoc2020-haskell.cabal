@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 769e2762880e3f83098d9a84922436832dbb545a610bd999c14d1b8e7a2dd6c3
+-- hash: 6f9c8fc0addb3eda1350689bca5d8ee75a3bafef9b7423b6a5f5d5be49dab592
 
 name:           aoc2020-haskell
 version:        0.1.0.0
@@ -46,6 +46,10 @@ library
       P5.BoardingPassFileReader
       P5.Solution
       P5.SolutionPrinter
+      P6.Solution
+      P6.SolutionPrinter
+      P6.Survey
+      P6.SurveyFileReader
       SolutionUtils.InputFile
       SolutionUtils.Splitter
   other-modules:
@@ -54,6 +58,7 @@ library
       src
   build-depends:
       base >=4.7 && <5
+    , containers
     , fclabels
     , regex-base
     , regex-pcre
@@ -69,6 +74,7 @@ executable aoc2020-haskell-exe
   build-depends:
       aoc2020-haskell
     , base >=4.7 && <5
+    , containers
     , fclabels
     , regex-base
     , regex-pcre
@@ -85,6 +91,7 @@ test-suite aoc2020-haskell-test
   build-depends:
       aoc2020-haskell
     , base >=4.7 && <5
+    , containers
     , fclabels
     , regex-base
     , regex-pcre
