@@ -1,14 +1,22 @@
 module P6.Solution (
-  totalQuestionsAnswered
+  totalQuestionsAnyoneAnswered,
+  totalQuestionsEveryoneAnswered
   ) where
 
 import qualified Data.Set as S
 
 import P6.Survey(
   Survey,
-  AnswerGroup(questions)
+  AnswerGroup(questions, questionsEveryoneAnswered),
+  CharSet
   )
 
-totalQuestionsAnswered :: Survey -> Int
-totalQuestionsAnswered = sum . map (S.size . questions)
+computeTotal :: (AnswerGroup -> CharSet) -> Survey -> Int
+computeTotal field = sum . map (S.size . field)
+
+totalQuestionsAnyoneAnswered :: Survey -> Int
+totalQuestionsAnyoneAnswered = computeTotal questions
+
+totalQuestionsEveryoneAnswered :: Survey -> Int
+totalQuestionsEveryoneAnswered = computeTotal questionsEveryoneAnswered
 
