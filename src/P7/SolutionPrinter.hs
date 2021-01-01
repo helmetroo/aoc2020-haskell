@@ -11,7 +11,8 @@ import P7.Rules(
   )
 
 import P7.Solution(
-  totalBagsContaining
+  bagsContainingAtLeastOneOf,
+  countBagsRequiredInside
   )
 
 import SolutionUtils.InputFile(
@@ -23,4 +24,5 @@ printSolution = do
   rules <- readRulesFile $ inputFileFor 7
   let bagType = BagType { attribute = "shiny", color = "gold" }
 
-  print $ totalBagsContaining bagType rules
+  print $ bagsContainingAtLeastOneOf bagType rules
+  print $ countBagsRequiredInside bagType rules

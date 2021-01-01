@@ -4,6 +4,9 @@ module P7.Rules(
   toParentBag,
   getNextChildBag,
   BagType(..),
+  AllowedBagType(..),
+  AllowedBagTypes,
+  BagContainments,
   Rules
   ) where
 
