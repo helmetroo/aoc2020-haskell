@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 6f9c8fc0addb3eda1350689bca5d8ee75a3bafef9b7423b6a5f5d5be49dab592
+-- hash: 82ce2ec8dc8d235f7cf8cda5c3f2aebcf17277fd8757df63f6910026cf656ea8
 
 name:           aoc2020-haskell
 version:        0.1.0.0
@@ -50,6 +50,10 @@ library
       P6.SolutionPrinter
       P6.Survey
       P6.SurveyFileReader
+      P7.Rules
+      P7.RulesFileReader
+      P7.Solution
+      P7.SolutionPrinter
       SolutionUtils.InputFile
       SolutionUtils.Splitter
   other-modules:
