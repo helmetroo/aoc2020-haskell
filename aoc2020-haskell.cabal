@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 3413113eeb860c5fe3ef9279e1c2515097008194a62f054a22fb88e6d5a8c0d8
+-- hash: e433f64a22821d56ff1a68bb40278d9d7d808f4f2162c926a55a4ac3d02ff0fa
 
 name:           aoc2020-haskell
 version:        0.1.0.0
@@ -56,6 +56,7 @@ library
       P7.SolutionPrinter
       P8.Machine
       P8.ProgramFileReader
+      P8.Solution
       P8.SolutionPrinter
       SolutionUtils.InputFile
       SolutionUtils.Splitter
