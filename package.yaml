@@ -25,6 +25,7 @@ dependencies:
 - regex-base
 - regex-pcre
 - containers
+- mtl
 
 library:
   source-dirs: src
