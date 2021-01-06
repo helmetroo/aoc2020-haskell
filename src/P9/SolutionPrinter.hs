@@ -7,7 +7,8 @@ import P9.NumberFileReader(
   )
 
 import P9.Solution(
-  findFirstNumberNotMatching
+  findFirstNumberNotMatching,
+  findEncryptionWeakness
   )
 
 import SolutionUtils.InputFile(
@@ -17,4 +18,8 @@ import SolutionUtils.InputFile(
 printSolution :: IO()
 printSolution = do
   numbers <- readNumberFile $ inputFileFor 9
-  print $ findFirstNumberNotMatching 25 numbers
+
+  let firstNumNotMatching = findFirstNumberNotMatching 25 numbers
+  print firstNumNotMatching
+
+  print $ findEncryptionWeakness numbers <$> firstNumNotMatching
