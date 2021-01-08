@@ -10,7 +10,8 @@ import P10.JoltageFileReader(
 
 import P10.Solution(
   buildDeltaMap,
-  productOfDeltas
+  productOfDeltas,
+  totalAdapterArrangements
   )
 
 import SolutionUtils.InputFile(
@@ -19,6 +20,8 @@ import SolutionUtils.InputFile(
 
 printSolution :: IO()
 printSolution = do
-  numbers <- readJoltageFile $ inputFileFor 10
-  let deltaMap = buildDeltaMap numbers
+  joltages <- readJoltageFile $ inputFileFor 10
+  let deltaMap = buildDeltaMap joltages
   print $ fromMaybe 0 $ productOfDeltas deltaMap
+
+  print $ totalAdapterArrangements joltages
