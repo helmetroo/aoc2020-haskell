@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 0d5a6d56091f5cfa446583b41f8e08246cb2f923213d990bc42db8019d2a51a4
+-- hash: 05d45efc0455c62e947bf884df761f695f842280a17ec7ba63ace72bef87b900
 
 name:           aoc2020-haskell
 version:        0.1.0.0
@@ -33,6 +33,10 @@ library
       P10.JoltageFileReader
       P10.Solution
       P10.SolutionPrinter
+      P11.SeatMap
+      P11.SeatMapFileReader
+      P11.Solution
+      P11.SolutionPrinter
       P2.PasswordFileReader
       P2.PasswordTypes
       P2.Solution
@@ -71,7 +75,8 @@ library
   hs-source-dirs:
       src
   build-depends:
-      base >=4.7 && <5
+      array
+    , base >=4.7 && <5
     , containers
     , fclabels
     , mtl
@@ -89,6 +94,7 @@ executable aoc2020-haskell-exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aoc2020-haskell
+    , array
     , base >=4.7 && <5
     , containers
     , fclabels
@@ -108,6 +114,7 @@ test-suite aoc2020-haskell-test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aoc2020-haskell
+    , array
     , base >=4.7 && <5
     , containers
     , fclabels
