@@ -3,7 +3,8 @@ module P11.SolutionPrinter(
   ) where
 
 import P11.Solution(
-  countOccupiedSeatsInFinalState
+  countOccupiedSeatsInFinalState,
+  Rule(..)
   )
 
 import P11.SeatMapFileReader(
@@ -17,4 +18,5 @@ import SolutionUtils.InputFile(
 printSolution :: IO()
 printSolution = do
   seatMap <- readSeatMapFile $ inputFileFor 11
-  print $ countOccupiedSeatsInFinalState seatMap
+  print $ countOccupiedSeatsInFinalState First seatMap
+  print $ countOccupiedSeatsInFinalState Second seatMap
