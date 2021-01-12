@@ -8,6 +8,7 @@ import P12.RouteFileReader(
 
 import P12.Solution(
   getLastManhattanDistance,
+  getLastManhattanDistanceWithWaypoint
   )
 
 import SolutionUtils.InputFile(
@@ -16,5 +17,6 @@ import SolutionUtils.InputFile(
 
 printSolution :: IO()
 printSolution = do
-  program <- readRouteFile $ inputFileFor 12
-  print $ getLastManhattanDistance program
+  route <- readRouteFile $ inputFileFor 12
+  print $ getLastManhattanDistance route
+  print $ getLastManhattanDistanceWithWaypoint route
