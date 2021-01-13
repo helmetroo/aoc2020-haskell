@@ -10,6 +10,7 @@ split p s =
 splitByDash = split (=='-')
 splitByColon = split (==':')
 splitBySpace = split (==' ')
+splitByComma = split (==',')
 splitByColonIntoPair str =
   let splitString = splitByColon str
   in (splitString !! 0, splitString !! 1)
