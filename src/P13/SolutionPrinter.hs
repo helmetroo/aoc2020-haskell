@@ -3,11 +3,14 @@ module P13.SolutionPrinter(
   ) where
 
 import P13.BusNotesFileReader(
-  readBusNotesFile
+  readBusNotesFile,
+  asBusNotes,
+  asBusIdsOffsets
   )
 
 import P13.Solution(
-  earliestBusTimesMinutesWaited
+  earliestBusTimesMinutesWaited,
+  timestampBusesDepartFromOffsets
   )
 
 import SolutionUtils.InputFile(
@@ -16,6 +19,10 @@ import SolutionUtils.InputFile(
 
 printSolution :: IO()
 printSolution = do
-  busNotes <- readBusNotesFile $ inputFileFor 13
+  busNotesFile <- readBusNotesFile $ inputFileFor 13
 
+  let busNotes = asBusNotes busNotesFile
   print $ earliestBusTimesMinutesWaited busNotes
+
+  let busIdsOffsets = asBusIdsOffsets busNotesFile
+  print $ timestampBusesDepartFromOffsets busIdsOffsets
