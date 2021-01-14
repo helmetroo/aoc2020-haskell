@@ -1,5 +1,7 @@
 module P13.BusNotesFileReader(
-  readBusNotesFile
+  readBusNotesFile,
+  asBusNotes,
+  asBusIdsOffsets
   ) where
 
 import System.IO(
@@ -18,18 +20,29 @@ import SolutionUtils.Splitter(
   )
 
 import P13.BusNotes(
-  BusNotes(..)
+  BusNotesFile(..),
+  BusNotes(..),
+  BusIdsOffsets(..)
   )
 
-readBusNotesFile :: String -> IO BusNotes
+readBusNotesFile :: String -> IO BusNotesFile
 readBusNotesFile fileName = do
-  [earliestDepartureTimeStr, busIdsStr] <- lines <$> readFile fileName
-  return BusNotes { earliestDepartureTime = read earliestDepartureTimeStr, busIds = parseBusIds busIdsStr }
+  [departureTimeStr, idsStr] <- lines <$> readFile fileName
+  return BusNotesFile { earliestDepartureTimeStr = departureTimeStr, busIdsStr = splitByComma idsStr }
 
 readMaybeInt :: String -> Maybe Integer
 readMaybeInt = readMaybe
 
-parseBusIds :: String -> [Integer]
-parseBusIds str =
-  let lexedBusIds = splitByComma str
-  in foldMap (toList . readMaybeInt) lexedBusIds
+parseBusIds :: [String] -> [Integer]
+parseBusIds = foldMap (toList . readMaybeInt)
+
+asBusNotes :: BusNotesFile -> BusNotes
+asBusNotes busNotesFile =
+  let (departureTimeStr, idsStr) = (earliestDepartureTimeStr busNotesFile, busIdsStr busNotesFile)
+  in BusNotes { earliestDepartureTime = read departureTimeStr, busIds = parseBusIds idsStr }
+
+asBusIdsOffsets :: BusNotesFile -> BusIdsOffsets
+asBusIdsOffsets busNotesFile =
+  let idsStr = busIdsStr busNotesFile
+      (allIds, offsets) = unzip [(read idStr, offset) | (idStr, offset) <- zip idsStr [0..], idStr /= "x"]
+  in BusIdsOffsets { ids = allIds, offsets = offsets }
