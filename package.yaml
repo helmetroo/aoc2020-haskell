@@ -28,6 +28,7 @@ dependencies:
 - mtl
 - sort
 - array
+- parsec
 
 library:
   source-dirs: src
