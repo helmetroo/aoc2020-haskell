@@ -7,6 +7,7 @@ import P14.ProgramFileReader(
   )
 
 import P14.Machine(
+  InstructionHandler(..),
   runProgram
   )
 
@@ -17,4 +18,5 @@ import SolutionUtils.InputFile(
 printSolution :: IO()
 printSolution = do
   program <- readProgramFile $ inputFileFor 14
-  print $ runProgram program
+  print $ runProgram V1 program
+  print $ runProgram V2 program
