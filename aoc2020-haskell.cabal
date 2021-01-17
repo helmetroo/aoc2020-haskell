@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: b6a27d97fa0902dff51601ce10707e0ec4e9471374c9c2175c0cae7bd90e166d
+-- hash: 85a1c8e21cbfabc9c9cabfedcaf5a05d9fb856b7c0f2afda3376d73601a470e5
 
 name:           aoc2020-haskell
 version:        0.1.0.0
@@ -48,6 +48,8 @@ library
       P14.Machine
       P14.ProgramFileReader
       P14.SolutionPrinter
+      P15.SequenceCalculator
+      P15.SolutionPrinter
       P2.PasswordFileReader
       P2.PasswordTypes
       P2.Solution
@@ -80,6 +82,7 @@ library
       P9.Solution
       P9.SolutionPrinter
       SolutionUtils.InputFile
+      SolutionUtils.IntegerFileReader
       SolutionUtils.Splitter
   other-modules:
       Paths_aoc2020_haskell
