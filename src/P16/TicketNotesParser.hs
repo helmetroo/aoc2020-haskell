@@ -45,38 +45,16 @@ ticketNotes = do
 emptyLine = string "\n\n"
 
 ticketField :: Parser FieldPair
-ticketField = do
-  fieldName <- ticketFieldName
-  string ": "
-  ranges <- ticketFieldRanges
-  newline
-  return (fieldName, ranges)
-
-ticketField' :: Parser FieldPair
-ticketField' = (,) <$> (ticketFieldName <* string ": ") <*> ticketFieldRanges'
+ticketField = (,) <$> (ticketFieldName <* string ": ") <*> (ticketFieldRanges <* newline)
 
 ticketFieldName :: Parser String
 ticketFieldName = many (lower <|> space)
 
 ticketFieldRanges :: Parser FieldRanges
-ticketFieldRanges = do
-  firstRange <- ticketFieldRange
-  string " or "
-  secondRange <- ticketFieldRange
-  return (firstRange, secondRange)
-
-ticketFieldRanges' :: Parser FieldRanges
-ticketFieldRanges' = (,) <$> (ticketFieldRange' <* string " or ") <*> ticketFieldRange'
+ticketFieldRanges = (,) <$> (ticketFieldRange <* string " or ") <*> ticketFieldRange
 
 ticketFieldRange :: Parser FieldRange
-ticketFieldRange = do
-  low <- read <$> many1 digit
-  char '-'
-  high <- read <$> many1 digit
-  return (low, high)
-
-ticketFieldRange' :: Parser FieldRange
-ticketFieldRange' = (,) <$> (read <$> many1 digit <* char '-') <*> (read <$> many1 digit)
+ticketFieldRange = (,) <$> (read <$> many1 digit <* char '-') <*> (read <$> many1 digit)
 
 ticketValues :: Parser Ticket
 ticketValues = map read <$> many1 digit `sepBy` char ','
